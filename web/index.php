@@ -14,7 +14,7 @@
 <body>
 <?php
 foreach ($products as $product) { ?>
-    <p><?php echo $product->getName() ?></p>
+    <p><?php echo ucwords(strtolower($product->getName())); ?></p>
     <?php } ?>
 </body>
 </html>
