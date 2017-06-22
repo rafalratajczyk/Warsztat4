@@ -42,6 +42,7 @@
             margin-top: 20px;
             margin-left: 25%;
             margin-right: 25%;
+            padding: 50px;
             border: 1px dashed #000;
         }
     </style>
@@ -51,5 +52,7 @@
 foreach ($products as $product) { ?>
     <p><?php echo ucwords(strtolower($product->getName())); ?></p>
     <?php } ?>
+
+    <!-- @todo login form -->
 </body>
 </html>
