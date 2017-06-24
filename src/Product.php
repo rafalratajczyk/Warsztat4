@@ -29,7 +29,7 @@ class Product
     {
         $products = [];
 
-        $result = $conn->query('SELECT * FROM `product`');
+        $result = $conn->query('SELECT * FROM `products`');
 
         foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $row) {
             $products[] = new Product($row['name'], $row['price'], $row['id']);
@@ -43,3 +43,4 @@ class Product
         return $this->name;
     }
 }
+
