@@ -1,1 +1,5 @@
-insert into product(name, price) VALUES('maskotka', 19.9), ('książka', 29.55), ('gra planszowa', 59.67), ('gra komputerowa', 159.99), ('płyta cd', 19.99), ('płyta DVD', 29.99);
+insert into products(name, price, description, category_id) VALUES('maskotka', 19.90, 'maskotka dla dzieci', 6), ('podręcznik PHP', 59.99, 'Podstawy języka PHP', 1),
+('gra planszowa', 59.67, 'Gra planszpowa', 3), ('gra komputerowa', 159.99, 'Heroes', 3), ('płyta cd',3.99, 'czysta płyta cd', 2 ), ('płyta DVD', 4.99,'czysta płyta dvd', 2), ('zeszyt', 1.50, 'Zeszyt w kratkę', 5),
+('Metallica - Biografia', 80.00, 'Najnowsza biografia zespołu Metallica', 1), ('Płyta winylowa', 47.50, 'Płyta z muzyką', 4), ('Karty do gry', 100.00, 'Talia kart do gry', 3);
+--categories:
+insert into categories(name, description) values('książki', 'Wszystkie książki'), ('Multimedia', 'Płyty cd,dvd, itp'), ('Rozrywka', 'Gry komputerowe, planszowe'), ('Muzyka', 'płyty z muzyką, winyle, itp.'), ('Art. biurowe', 'art. biurwe ');
