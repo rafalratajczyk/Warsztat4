@@ -1,12 +1,22 @@
 <?php
-    require_once ('../src/Category.php');
-    require_once ('../src/Product.php');
-    require_once 'config.php';
+require_once ('../src/Category.php');
+require_once ('../src/Product.php');
+require_once 'config.php';
 
+session_start();
+
+if (isset($_SESSION['msg'])) {
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+}
 $products = Product::findAll($conn);
 $productsCounter = count($products);
 
 $categories = Category::findAll($conn);
+
+if (isset($_SESSION['user'])) {
+    echo "Witaj <b>".$_SESSION['user']."</b>";
+}
 
 ?>
 
@@ -32,7 +42,6 @@ $categories = Category::findAll($conn);
         }
     </style>
 </head>
-<body>
 <?php
 if (isset($_SESSION['login'])) {
     foreach ($products as $product) {
@@ -40,8 +49,7 @@ if (isset($_SESSION['login'])) {
     }
 }
 
-echo "<p style='float: right;'><a href='login.php'>Zaloguj się</a></p>";
-echo "<p style='float: right;'><a href='register.php'>Zarejestruj się /</a></p>";
+echo "<p style='float: right; margin-right: 25px;'><a href='register.php'>Zarejestruj się</a></p>";
 
 $carouselProducts = [];
 if ($productsCounter > 5) {
@@ -71,7 +79,28 @@ foreach ($categories as $category) {
 echo '</div>';
 ?>
 
+<div class="container">
+    <div class='row'>
+        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
 
+        </div>
+        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+            <form action='login.php' method='POST' role='form'>
+                <legend>Zaloguj się</legend>
+                <div class='form-group'>
+                    <label for=''>Login</label>
+                    <input type='text' class='form-control' name='login' id='login' placeholder='Adres email...'>
+                </div>
 
+                <div class='form-group'>
+                    <label for=''>Hasło</label>
+                    <input type='password' class='form-control' name='password' id='password' placeholder='Hasło...'>
+                </div>
+
+                <button type='submit' class='btn btn-primary'>Zaloguj się</button>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
